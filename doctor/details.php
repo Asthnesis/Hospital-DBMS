@@ -71,7 +71,7 @@
   ?>
 <body>
     <div class="header">
-        <a href="dhome.php"> < Back</a>
+        <a href="/doctor/home.php"> < Back</a>
     </div>
     <div class="container">
         <table>

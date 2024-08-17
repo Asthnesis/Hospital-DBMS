@@ -69,9 +69,9 @@ $nquery  = mysqli_query($connection, "SELECT * FROM nurse,receptionist WHERE nur
 
 <body>
   <div class="header">
-    <a href="nhome.php">Home</a>
-    <a href="nnew.php">New Info</a>
-    <a href="nrecord.php">Records</a>
+    <a href="/nurse/home.php">Home</a>
+    <a href="/nurse/new.php">New Info</a>
+    <a href="/nurse/records.php">Records</a>
   </div>
   <div class="container">
     <table>

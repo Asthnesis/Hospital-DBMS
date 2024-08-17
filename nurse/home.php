@@ -8,7 +8,7 @@
 </head>
 <style>
   body {
-    background-color: lightblue;
+    background-color: #f2a1e4;
     font-family: Arial, sans-serif;
     margin: auto;
     width: 700px;
@@ -18,7 +18,7 @@
     display: flex;
     padding: 10px;
     justify-content: space-around;
-    background: cadetblue;
+    background: #e97dc8;
     margin-bottom: 10px;
   }
 
@@ -38,7 +38,7 @@
     text-align: center;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f6e8e7;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -84,22 +84,22 @@
   }
 
   th {
-    background-color: cadetblue;
+    background-color: #f6e8e7;
     color: white;
   }
 </style>
 
 
 <body>
-  <div class="header">
-    <a href="home.php">Home</a>
-    <a href="new.php">New Patient</a>
-    <a href="retrieve.php">Records</a>
+<div class="header">
+    <a href="/nurse/home.php">Home</a>
+    <a href="/nurse/new.php">New Info</a>
+    <a href="/nurse/records.php">Records</a>
   </div>
 
   <div class="container">
     <h2>Saint James Park Hospital</h2>
-    <img src="/logo.png" alt="" height="100px" width="100px">
+    <img src="/res/logo.png" alt="" height="100px" width="100px">
     <p>Search the records</p>
     <form action="" method="post">
       <label>Patient name</label>
@@ -108,6 +108,7 @@
     </form>
     <?php
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     $pname = $_POST['pname'];
 
     $connection = mysqli_connect('127.0.0.1', 'root', '', 'hospital');
@@ -115,7 +116,10 @@
       echo 'Could not connect ', mysqli_connect_error();
     }
 
-    $query = mysqli_query($connection, "SELECT * FROM patients WHERE name LIKE '%$pname%'");
+    $query = mysqli_query($connection, "SELECT *
+    FROM nurse, receptionist
+    WHERE nurse.id = receptionist.id AND (nurse.id LIKE '%$pname%' OR receptionist.name LIKE '%$pname%')
+    ");
     $numRows = mysqli_num_rows($query);
     if ($numRows > 0) {
   ?>
@@ -123,22 +127,22 @@
       <div class="container">
         <table>
           <thead>
-            <td>Name</td>
-            <td>Admission Number</td>
+            <td>ID</td>
+            <td>name</td>
             <td>Age</td>
-            <td>Phone</td>
-            <td>Diagnostics</td>
+            <td>Blood Presssure</td>
+            <td>Observations</td>
           </thead>
           <tbody>
             <?php
             while ($row = mysqli_fetch_assoc($query)) {
             ?>
               <tr>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['adm'];?></td>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['name'];?></td>
                 <td><?php echo $row['age']; ?></td>
-                <td><?php echo $row['phone']; ?></td>
-                <td><?php echo $row['diagnostics']; ?></td>
+                <td><?php echo $row['bloodpressure']; ?></td>
+                <td><?php echo $row['observations']; ?></td>
               </tr>
             <?php
             }

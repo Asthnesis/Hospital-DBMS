@@ -53,9 +53,9 @@ $query = mysqli_query($connection, "SELECT * FROM receptionist");
 
 <body>
 <div class="header">
-    <a href="receptionHome.php">Home</a>
-    <a href="rnew.php">New Patient</a>
-    <a href="rretrieve.php">Records</a>
+    <a href="/reception/home.php">Home</a>
+    <a href="/reception/new.php">New Patient</a>
+    <a href="/reception/records.php">Records</a>
   </div>
     <table>
       <thead>

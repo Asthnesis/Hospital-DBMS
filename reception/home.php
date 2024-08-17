@@ -95,14 +95,14 @@
 
 <body>
   <div class="header">
-    <a href="receptionHome.php">Home</a>
-    <a href="rnew.php">New Patient</a>
-    <a href="rretrieve.php">Records</a>
+    <a href="/reception/home.php">Home</a>
+    <a href="/reception/new.php">New Patient</a>
+    <a href="/reception/records.php">Records</a>
   </div>
 
   <div class="container">
     <h2>Saint James Park Hospital</h2>
-    <img src="/logo.png" alt="" height="100px" width="100px">
+    <img src="/res/logo.png" alt="" height="100px" width="100px">
     <p>Search the records</p>
     <form action="" method="post">
       <label>Patient name</label>

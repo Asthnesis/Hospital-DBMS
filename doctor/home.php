@@ -94,13 +94,13 @@
 
 <body>
   <div class="header">
-    <a href="dhome.php">Home</a>
-    <a href="dnew.php">New Patient</a>
+    <a href="/doctor/home.php">Home</a>
+    <a href="/doctor/new.php">Patients</a>
   </div>
 
   <div class="container">
     <h2>Saint James Park Hospital</h2>
-    <img src="/logo.png" alt="" height="100px" width="100px">
+    <img src="/res/logo.png" alt="" height="100px" width="100px">
     <p>Search the records</p>
     <form action=""  method="post">
       <label>Patient name</label>
@@ -115,7 +115,11 @@
       echo 'Could not connect ', mysqli_connect_error();
     }
 
-    $query = mysqli_query($connection, "SELECT * FROM doctor,nurse,receptionist WHERE doctor.id = receptionist.id AND doctor.id = nurse.id AND doctor.id LIKE '%$pname%'");
+    $query = mysqli_query($connection,"SELECT * 
+FROM doctor 
+JOIN receptionist ON doctor.id = receptionist.id 
+JOIN nurse ON doctor.id = nurse.id 
+WHERE receptionist.name LIKE '%$pname%'; ");
     $numRows = mysqli_num_rows($query);
     if ($numRows > 0) {
   ?>

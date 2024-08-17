@@ -69,8 +69,8 @@ $query = mysqli_query($connection, "SELECT * FROM receptionist");
 
 <body>
   <div class="header">
-    <a href="dhome.php">Home</a>
-    <a href="dnew.php">New patient</a>
+    <a href="/doctor/home.php">Home</a>
+    <a href="/doctor/new.php">Patients</a>
   </div>
   <i>Click on a patient to add or update their information</i>
   <div class="container">

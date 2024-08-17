@@ -82,16 +82,16 @@ $query = mysqli_query($connection,"SELECT * FROM login WHERE username='$username
 if(mysqli_num_rows($query)==1){
     $firstLetter = substr($username, 0, 1);
     if ($firstLetter === 'D') {
-        header('Location: dhome.php');
+        header('Location: doctor/home.php');
         exit;
     } elseif ($firstLetter === 'N') {
-        header('Location: nhome.php');
+        header('Location: nurse/home.php');
         exit;
     } elseif ($firstLetter === 'R') {
-        header('Location: receptionHome.php');
+        header('Location: reception/home.php');
         exit;
     }
-    header('Location: home.php');
+    header('Location: index.php');
 
 }
 else{

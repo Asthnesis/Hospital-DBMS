@@ -66,10 +66,10 @@ $query = mysqli_query($connection, "SELECT * FROM receptionist");
 </style>
 
 <body>
-  <div class="header">
-    <a href="nhome.php">Home</a>
-    <a href="nnew.php">New Info</a>
-    <a href="nrecord.php">Records</a>
+<div class="header">
+    <a href="/nurse/home.php">Home</a>
+    <a href="/nurse/new.php">New Info</a>
+    <a href="/nurse/records.php">Records</a>
   </div>
   <i>Click on a patient to add or update their information</i>
   <div class="container">
